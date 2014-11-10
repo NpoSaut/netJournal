@@ -31,7 +31,7 @@ namespace JournalApplication.Controllers
             TimeSpan dur = To - From;
             List<PointModel> points = Enumerable
                 .Range(0, pointsCount)
-                .Select(i => new PointModel(From.AddTicks((int)((double)dur.Ticks * i / pointsCount)),
+                .Select(i => new PointModel(From.AddTicks((long)((double)dur.Ticks * i / pointsCount)),
                                             (1.0 + 0.3 * r.NextDouble()) * hoursCount * i / pointsCount)).ToList();
             return Json(new
                         {
