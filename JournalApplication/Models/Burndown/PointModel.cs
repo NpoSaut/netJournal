@@ -4,13 +4,13 @@ namespace JournalApplication.Models.Burndown
 {
     public class PointModel
     {
-        public PointModel(DateTime Time, double HoursBurned)
+        public PointModel(DateTime Time, double UnburnedHours)
         {
             this.Time = Time;
-            this.HoursBurned = HoursBurned;
+            this.UnburnedHours = UnburnedHours;
         }
 
         public DateTime Time { get; private set; }
-        public Double HoursBurned { get; private set; }
+        public Double UnburnedHours { get; private set; }
     }
 }
