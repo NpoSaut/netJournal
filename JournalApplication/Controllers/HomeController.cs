@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Mvc;
+using Journal.Data;
 using JournalApplication.ViewModels;
 
 namespace JournalApplication.Controllers
@@ -9,6 +11,8 @@ namespace JournalApplication.Controllers
     {
         //
         // GET: /Home/
+
+        private const int UserId = 1;
 
         public ActionResult Index()
         {
@@ -19,6 +23,18 @@ namespace JournalApplication.Controllers
                                                     .OrderBy(s => s.StartTime)
                                                     .ToList());
             return View(model);
+        }
+
+        public ActionResult AddRecord(int st, int et)
+        {
+            DateTime startTime = DateTime.Today.AddHours(st);
+            DateTime endTime = DateTime.Today.AddHours(et);
+
+            using (var context = new JournalDataModelContainer())
+            {
+                context.Sessions.AddOrUpdate(new Session { StartTime = startTime, EndTime = endTime });
+            }
+            return View();
         }
     }
 }
