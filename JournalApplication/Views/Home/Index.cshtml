@@ -6,7 +6,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Добрый день, mr. @Model.UserName</h2>
+@section scripts
+{
+    @Scripts.Render("~/bundles/burndown")
+}
+
+<div id="myText">текст</div>
+<canvas id='myCanvas' height="480" width="640">Обновите браузер</canvas>
+<script>
+    
+    //$.getJSON("http://localhost:52288/Home/Burndown?from=6.11.2014&to=10.11.2014", function (data, textStatus) {
+    //    var myText = document.getElementById("myText");
+    //    myText.innerHTML = textStatus;
+    //    //var items = [];
+    //    //$.each(data, function(key, value) {
+    //    //    items.push("<li id='" + key + "'>" + value + "</li>");
+    //    //});
+
+    //    //$("<ul/>", {
+    //    //    "class": "my-new-list",
+    //    //    html: items.join("")
+    //    //}).appendTo("body");
+    //});
+
+    //var myCanvas = document.getElementById("myCanvas");
+    //myCanvas.width = 640;
+    //myCanvas.height = 480;
+
+    //ctx = myCanvas.getContext('2d');
+    //ctx.beginPath();
+    //ctx.moveTo(15, 15);
+    //ctx.lineTo(30, 30);
+    //ctx.lineTo(30, 15);
+    //ctx.stroke();
+
+    ////recordNumber = {
+    ////    date: new Date(2014, 11, 10, 18, 01),
+    ////    amount: 1
+    ////}
+
+    //var myText = document.getElementById("myText");
+    ////myText.innerHTML = JSON.stringify(recordNumber);
+
+    //var str = '{"journal":[' +
+    //    '{"date":"2014-12-10T13:01:00.000Z","amount":1},' +
+    //    ' {"date":"2014-12-10T13:02:00.000Z","amount":2},' +
+    //    ' {"date":"2014-12-10T13:03:00.000Z","amount":4}' +
+    //    ' ] }';
+
+    //var obj = JSON.parse(str);
+    //myText.innerHTML = obj.journal[1].date + " " + obj.journal[1].amount;
+
+    //var xhr = new XMLHttpRequest();
+    //xhr.onreadystatechange = function () {
+    //    if (xhr.readyState === XMLHttpRequest.DONE) {
+    //        if (xhr.status === 200) {
+                
+    //        }
+    //    }
+    //};
+    //xhr.open("GET", "http://localhost:52288/Home/Burndown?from=6.11.2014&to=10.11.2014", true);
+    //xhr.send();
+
+</script>
+
+@*<h2>Добрый день, mr. @Model.UserName</h2>
 <p>Ваши последние сессии:</p>
 @Html.ActionLink("Открыть сессию", "OpenSession", new { StartTime = DateTime.Now, UserId = Model.UserId })
 @Html.ActionLink("Закрыть сессию", "CloseSession", new { EndTime = DateTime.Now, UserId = Model.UserId })
@@ -19,4 +83,4 @@
             <td>@session.Duration</td>
         </tr> 
     }
-</table>
+</table>*@
