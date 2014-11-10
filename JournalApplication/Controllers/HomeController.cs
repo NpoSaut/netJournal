@@ -27,6 +27,13 @@ namespace JournalApplication.Controllers
             return View(model);
         }
 
+        public ActionResult OpenSession(DateTime StartTime)
+        {
+            var session = new Session(StartTime, null, UserId);
+            _sessionRepository.AddSession(session);
+            return View("AddRecord");
+        }
+
         public ActionResult AddRecord(DateTime Start, DateTime End)
         {
             var session = new Session(Start, End, UserId);
