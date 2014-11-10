@@ -1,6 +1,5 @@
 ﻿$(document).ready(function() {
     $.getJSON("Home/Burndown?from=11.06.2014&to=11.10.2014", function(data, textStatus) {
-        var myText = document.getElementById("myText");
         var myCanvas = document.getElementById("myCanvas");
 
         var items = [];
@@ -21,12 +20,12 @@
             return max;
         }();
 
-        var tickPerPixel = (maxTime - minTime)  / myCanvas.clientWidth;
+        var tickPerPixel = (maxTime - minTime) / myCanvas.clientWidth;
         var burnsPerPixel = (maxBurned - minBurned) / myCanvas.clientHeight;
 
         var ctx = myCanvas.getContext('2d');
         ctx.beginPath();
-        $.each(items, function (i, e) {
+        $.each(items, function(i, e) {
             var x = (e.time - minTime) / tickPerPixel;
             var y = (e.burned - minBurned) / burnsPerPixel;
             if (i === 0)
