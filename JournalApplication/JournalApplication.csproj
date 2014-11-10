@@ -147,7 +147,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Burndown\BurndownModel.cs" />
+    <Compile Include="Models\Burndown\BurndownModelProvider.cs" />
+    <Compile Include="Models\Burndown\IBurndownModelProvider.cs" />
+    <Compile Include="Models\Burndown\IWorktimeCalculator.cs" />
     <Compile Include="Models\Burndown\PointModel.cs" />
+    <Compile Include="Models\Burndown\SimpleWorktimeCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\SessionViewModel.cs" />

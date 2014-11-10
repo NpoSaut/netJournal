@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Journal.Data;
-using Journal.Data.Sql;
 using JournalApplication.Models.Burndown;
 using JournalApplication.ViewModels;
 
@@ -15,8 +13,16 @@ namespace JournalApplication.Controllers
         // GET: /Home/
 
         private const int CurrentUserId = 1;
-        private readonly ISessionRepository _sessionRepository = new EntityFrameworkSessionsRepository();
-        private readonly IUsersRepository _usersRepository = new EntityFrameworkUserRepository();
+        private readonly IBurndownModelProvider _burndownModelProvider;
+        private readonly ISessionRepository _sessionRepository;
+        private readonly IUsersRepository _usersRepository;
+
+        public HomeController(ISessionRepository SessionRepository, IUsersRepository UsersRepository, IBurndownModelProvider BurndownModelProvider)
+        {
+            _sessionRepository = SessionRepository;
+            _usersRepository = UsersRepository;
+            _burndownModelProvider = BurndownModelProvider;
+        }
 
         public ActionResult Index()
         {
@@ -46,22 +52,10 @@ namespace JournalApplication.Controllers
             return View("Success");
         }
 
-        public JsonResult Burndown(DateTime From, DateTime To)
+        public JsonResult Burndown(DateTime From, DateTime To, int UserId)
         {
-            var r = new Random();
-            const int pointsCount = 10;
-            const double hoursCount = 40;
-            TimeSpan dur = To - From;
-            List<PointModel> points = Enumerable
-                .Range(0, pointsCount)
-                .Select(i => new PointModel(From.AddTicks((long)((double)dur.Ticks * i / pointsCount)),
-                                            (1.0 + 0.3 * r.NextDouble()) * hoursCount * i / pointsCount)).ToList();
-            return Json(new
-                        {
-                            StartTime = From,
-                            EndTime = To,
-                            PointsData = points
-                        }, JsonRequestBehavior.AllowGet);
+            BurndownModel burndownModel = _burndownModelProvider.GetBurndownModel(From, To, UserId);
+            return Json(burndownModel, JsonRequestBehavior.AllowGet);
         }
     }
 }
