@@ -5,7 +5,9 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalApplication", "JournalApplication\JournalApplication.csproj", "{E9CA1E63-92FA-435F-96E7-F96E150542F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Data", "Journal.Data\Journal.Data.csproj", "{A7DD5806-B561-4F83-96C9-B56E88733BA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Data.Sql", "Journal.Data.Sql\Journal.Data.Sql.csproj", "{A7DD5806-B561-4F83-96C9-B56E88733BA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Shared", "Journal.Shared\Journal.Shared.csproj", "{4BDCA275-C3C0-4977-8D14-1554A2172E07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A7DD5806-B561-4F83-96C9-B56E88733BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7DD5806-B561-4F83-96C9-B56E88733BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7DD5806-B561-4F83-96C9-B56E88733BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

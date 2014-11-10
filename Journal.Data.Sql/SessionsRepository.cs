@@ -14,6 +14,7 @@ namespace Journal.Data
             using (var context = new JournalDataModelContainer())
             {
                 context.Sessions.AddOrUpdate(new Session { StartTime = startTime, EndTime = endTime });
+                context.SaveChanges();
             }
         }
     }

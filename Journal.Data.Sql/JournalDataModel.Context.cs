@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journal.Data
+namespace Journal.Data.Sql
 {
     using System;
     using System.Data.Entity;

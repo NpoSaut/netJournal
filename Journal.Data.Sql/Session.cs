@@ -7,21 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journal.Data
+namespace Journal.Data.Sql
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Session
     {
-        public User()
-        {
-            this.Sessions = new HashSet<Session>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public System.DateTime StartTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        public int UserId { get; set; }
     
-        public virtual ICollection<Session> Sessions { get; set; }
+        public virtual User User { get; set; }
     }
 }

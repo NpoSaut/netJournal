@@ -27,14 +27,6 @@ namespace JournalApplication.Controllers
 
         public ActionResult AddRecord(int st, int et)
         {
-            DateTime startTime = DateTime.Today.AddHours(st);
-            DateTime endTime = DateTime.Today.AddHours(et);
-
-            using (var context = new JournalDataModelContainer())
-            {
-                context.Sessions.AddOrUpdate(new Session { StartTime = startTime, EndTime = endTime });
-            }
-            return View();
         }
     }
 }

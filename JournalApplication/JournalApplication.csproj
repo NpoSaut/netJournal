@@ -252,9 +252,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journal.Data\Journal.Data.csproj">
+    <ProjectReference Include="..\Journal.Data.Sql\Journal.Data.Sql.csproj">
       <Project>{A7DD5806-B561-4F83-96C9-B56E88733BA0}</Project>
-      <Name>Journal.Data</Name>
+      <Name>Journal.Data.Sql</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
