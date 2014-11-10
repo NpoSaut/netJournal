@@ -24,9 +24,5 @@ namespace JournalApplication.Controllers
                                                     .ToList());
             return View(model);
         }
-
-        public ActionResult AddRecord(int st, int et)
-        {
-        }
     }
 }
