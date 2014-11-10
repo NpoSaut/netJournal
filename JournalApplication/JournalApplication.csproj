@@ -39,14 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -255,6 +247,10 @@
     <ProjectReference Include="..\Journal.Data.Sql\Journal.Data.Sql.csproj">
       <Project>{A7DD5806-B561-4F83-96C9-B56E88733BA0}</Project>
       <Name>Journal.Data.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journal.Shared\Journal.Shared.csproj">
+      <Project>{4bdca275-c3c0-4977-8d14-1554a2172e07}</Project>
+      <Name>Journal.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

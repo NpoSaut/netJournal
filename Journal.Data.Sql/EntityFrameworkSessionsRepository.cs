@@ -1,7 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using Journal.Shared.Data;
 
 namespace Journal.Data.Sql
 {
@@ -26,6 +25,16 @@ namespace Journal.Data.Sql
             using (var context = new JournalDataModel())
             {
                 return context.Sessions.SingleOrDefault(s => s.EndTime == null);
+            }
+        }
+
+        /// <summary>Получает список всех сессий для указанного пользователя</summary>
+        /// <param name="UserId">Идентификатор пользователя</param>
+        public IList<Session> GetSessions(int UserId)
+        {
+            using (var context = new JournalDataModel())
+            {
+                return context.Sessions.Where(s => s.UserId == UserId).ToList();
             }
         }
     }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalApplication", "JournalApplication\JournalApplication.csproj", "{E9CA1E63-92FA-435F-96E7-F96E150542F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A7DD5806-B561-4F83-96C9-B56E88733BA0} = {A7DD5806-B561-4F83-96C9-B56E88733BA0}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Data.Sql", "Journal.Data.Sql\Journal.Data.Sql.csproj", "{A7DD5806-B561-4F83-96C9-B56E88733BA0}"
 EndProject

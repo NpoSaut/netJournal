@@ -7,7 +7,7 @@
     <ProjectGuid>{4BDCA275-C3C0-4977-8D14-1554A2172E07}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journal.Shared</RootNamespace>
+    <RootNamespace>Journal</RootNamespace>
     <AssemblyName>Journal.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ISessionRepository.cs" />
+    <Compile Include="Data\IUsersRepository.cs" />
     <Compile Include="Data\Session.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

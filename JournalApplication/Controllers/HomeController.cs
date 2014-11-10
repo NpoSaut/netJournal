@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.Mvc;
 using Journal.Data;
+using Journal.Data.Sql;
 using JournalApplication.ViewModels;
 
 namespace JournalApplication.Controllers
@@ -13,16 +13,25 @@ namespace JournalApplication.Controllers
         // GET: /Home/
 
         private const int UserId = 1;
+        private readonly ISessionRepository _sessionRepository = new EntityFrameworkSessionsRepository();
+        private readonly IUsersRepository _usersRepository = new EntityFrameworkUserRepository();
 
         public ActionResult Index()
         {
-            var model = new HomeViewModel("Евгений Плюснин",
-                                          Enumerable.Range(0, 7)
-                                                    .Select(i => DateTime.Today.AddDays(-i).AddHours(9))
-                                                    .Select(d => new SessionViewModel(d, d.AddHours(9)))
-                                                    .OrderBy(s => s.StartTime)
-                                                    .ToList());
+            User user = _usersRepository.GetUserById(UserId);
+
+            var model = new HomeViewModel(user.Name,
+                                          _sessionRepository.GetSessions(user.Id)
+                                                            .Select(s => new SessionViewModel(s.StartTime, s.EndTime))
+                                                            .ToList());
             return View(model);
+        }
+
+        public ActionResult AddRecord(DateTime Start, DateTime End)
+        {
+            var session = new Session(Start, End, UserId);
+            _sessionRepository.AddSession(session);
+            return View();
         }
     }
 }

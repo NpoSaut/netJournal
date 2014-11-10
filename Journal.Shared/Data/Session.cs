@@ -1,9 +1,18 @@
 using System;
 
-namespace Journal.Shared.Data
+namespace Journal.Data
 {
     public class Session
     {
+        public Session() { }
+
+        public Session(DateTime StartTime, DateTime EndTime, int UserId) : this()
+        {
+            this.StartTime = StartTime;
+            this.EndTime = EndTime;
+            this.UserId = UserId;
+        }
+
         public int Id { get; set; }
 
         public DateTime StartTime { get; set; }

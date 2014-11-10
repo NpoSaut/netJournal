@@ -1,5 +1,4 @@
 using System.Data.Entity;
-using Journal.Shared.Data;
 
 namespace Journal.Data.Sql
 {

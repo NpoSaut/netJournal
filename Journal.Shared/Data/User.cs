@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Journal.Shared.Data
+namespace Journal.Data
 {
     public class User
     {
