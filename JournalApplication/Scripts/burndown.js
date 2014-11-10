@@ -1,5 +1,5 @@
 ﻿$(document).ready(function() {
-    $.getJSON("Home/Burndown?from=10.15.2014&to=11.10.2014&userid=1", function(data, textStatus) {
+    $.getJSON("Home/Burndown?from=10.28.2014&to=11.10.2014&userid=1", function(data, textStatus) {
         var myCanvas = document.getElementById("myCanvas");
 
         var items = [];
@@ -13,7 +13,11 @@
 
         var minTime = StringToDate(data.StartTime);
         var maxTime = StringToDate(data.EndTime);
-        var minUnburned = 0;
+        var minUnburned = function () {
+            var min = 0;
+            $.each(items, function (i, e) { if (e.unburned < min) min = e.unburned; });
+            return min;
+        }();
         var maxUnburned = function() {
             var max = minUnburned;
             $.each(items, function(i, e) { if (e.unburned > max) max = e.unburned; });
