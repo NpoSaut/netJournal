@@ -7,6 +7,8 @@ namespace Journal.Data
     {
         public User() { Sessions = new HashSet<Session>(); }
 
+        public User(string Name) : this() { this.Name = Name; }
+
         public int Id { get; set; }
 
         [Required]

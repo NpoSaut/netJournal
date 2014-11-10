@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Data.Sql", "Journal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Shared", "Journal.Shared\Journal.Shared.csproj", "{4BDCA275-C3C0-4977-8D14-1554A2172E07}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{55F31C6D-49E0-4158-9EE4-8B54FFD6E528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseDemoPumper", "DatabaseDemoPumper\DatabaseDemoPumper.csproj", "{CEB5172B-F106-477E-B62B-E060E754EBE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,8 +34,15 @@ Global
 		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BDCA275-C3C0-4977-8D14-1554A2172E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB5172B-F106-477E-B62B-E060E754EBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB5172B-F106-477E-B62B-E060E754EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB5172B-F106-477E-B62B-E060E754EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB5172B-F106-477E-B62B-E060E754EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEB5172B-F106-477E-B62B-E060E754EBE8} = {55F31C6D-49E0-4158-9EE4-8B54FFD6E528}
 	EndGlobalSection
 EndGlobal
