@@ -19,12 +19,13 @@ namespace Journal.Data.Sql
         }
 
         /// <summary>Получает последнюю открытую сессию</summary>
+        /// <param name="UserId"></param>
         /// <returns>Последняя открытая сессия</returns>
-        public Session GetOpenSession()
+        public Session GetOpenSession(int UserId)
         {
             using (var context = new JournalDataModel())
             {
-                return context.Sessions.SingleOrDefault(s => s.EndTime == null);
+                return context.Sessions.Where(s => s.UserId == UserId).SingleOrDefault(s => s.EndTime == null);
             }
         }
 
@@ -35,6 +36,17 @@ namespace Journal.Data.Sql
             using (var context = new JournalDataModel())
             {
                 return context.Sessions.Where(s => s.UserId == UserId).ToList();
+            }
+        }
+
+        /// <summary>Сохраняет изменения, сделанные в сессии</summary>
+        /// <param name="Session">Изменённая сессия</param>
+        public void SaveSessionChanged(Session Session)
+        {
+            using (var context = new JournalDataModel())
+            {
+                context.Sessions.AddOrUpdate(Session);
+                context.SaveChanges();
             }
         }
     }

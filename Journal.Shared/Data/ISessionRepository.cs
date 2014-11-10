@@ -10,11 +10,16 @@ namespace Journal.Data
         void AddSession(Session Session);
 
         /// <summary>Получает последнюю открытую сессию</summary>
+        /// <param name="UserId"></param>
         /// <returns>Последняя открытая сессия</returns>
-        Session GetOpenSession();
+        Session GetOpenSession(int UserId);
 
         /// <summary>Получает список всех сессий для указанного пользователя</summary>
         /// <param name="UserId">Идентификатор пользователя</param>
         IList<Session> GetSessions(int UserId);
+
+        /// <summary>Сохраняет изменения, сделанные в сессии</summary>
+        /// <param name="Session">Изменённая сессия</param>
+        void SaveSessionChanged(Session Session);
     }
 }

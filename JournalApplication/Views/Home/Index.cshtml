@@ -1,5 +1,5 @@
 ﻿@using JournalApplication.ViewModels
-@model JournalApplication.ViewModels.HomeViewModel
+@model HomeViewModel
 
 @{
     ViewBag.Title = "title";
@@ -8,6 +8,8 @@
 
 <h2>Добрый день, mr. @Model.UserName</h2>
 <p>Ваши последние сессии:</p>
+@Html.ActionLink("Открыть сессию", "OpenSession", new { StartTime = DateTime.Now, UserId = Model.UserId })
+@Html.ActionLink("Закрыть сессию", "CloseSession", new { EndTime = DateTime.Now, UserId = Model.UserId })
 <table>
     @foreach (SessionViewModel session in Model.Sessions)
     {
