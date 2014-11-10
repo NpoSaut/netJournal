@@ -1,0 +1,20 @@
+﻿@using JournalApplication.ViewModels
+@model JournalApplication.ViewModels.HomeViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добрый день, mr. @Model.UserName</h2>
+<p>Ваши последние сессии:</p>
+<table>
+    @foreach (SessionViewModel session in Model.Sessions)
+    {
+        <tr>
+            <td>@session.StartTime</td>
+            <td>@session.EndTime</td>
+            <td>@session.Duration</td>
+        </tr> 
+    }
+</table>
