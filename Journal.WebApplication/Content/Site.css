@@ -25,11 +25,11 @@ textarea {
 .main-line {
     background-image: url(/Content/Images/welcome.jpg);
     background-position-x: center;
-    background-position-y: 40%;
+    background-position-y: 36%;
     height: 250px;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .main-line .centred {
@@ -39,10 +39,42 @@ textarea {
 }
 
 .time-editor {
-    margin: 10px;
+    
+}
+
+.time-editor button {
+    width: 140px;
+}
+
+.time-editor .time-element {
     background-color: transparent;
     text-align: center;
-    font-size: 24pt;
+    font-size: 64pt;
     height: auto;
+    color: #0e0d0b;
+    border: none;
+    display: inline-block;
+    float: left;
+}
+
+
+.time-editor button:hover {
+    text-decoration-line: underline;
+    text-decoration-color: #0e0d0b;
+}
+
+.btn-checkin {
+    background-color: #47a447;
+    border-color: #398439;
+    margin-top: 10px;
+    width: 360px;
     color: white;
 }
+
+.btn-checkin:hover, .btn-checkin:focus, .btn-checkin:active, .active.btn-checkin, .open .btn-checkin.dropdown-toggle {
+    color: #fff;
+    background-color: #47a447;
+    border-color: #398439;
+}
+
+
