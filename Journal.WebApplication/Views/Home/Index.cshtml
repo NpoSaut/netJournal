@@ -11,33 +11,7 @@
 
 <div class="main-line">
     <div class="form-group">
-        <div class="time-editor btn-group">
-            <div class="btn-group">
-                <button type="button" class="btn time-element dropdown-toggle" data-toggle="dropdown">
-                    8
-                </button>
-                <ul class="dropdown-menu">
-                    @for (int i = 7; i <= 10; i ++)
-                    {
-                        <li><a href="#">@i</a></li>
-                    }
-                </ul>
-            </div>
-            <div class="time-element">
-                :
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn time-element dropdown-toggle" data-toggle="dropdown">
-                    24
-                </button>
-                <ul class="dropdown-menu">
-                    @for (int i = 0; i < 60; i+=10)
-                    {
-                        <li><a href="#">@i</a></li>
-                    }
-                </ul>
-            </div>
-        </div>
+        <input type="text" class="time-editor" value="8:24">
         <button type="button" class="btn btn-checkin btn-lg centred">Привет</button>
     </div>
 </div>
