@@ -1,12 +1,13 @@
-﻿@model Journal.WebApplication.ViewModels.HomeViewModel
+﻿@using Journal.WebApplication.ViewModels
+@model HomeViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Журнал учёта рабочего времени";
 }
 
 @section scripts
 {
-    @*@Scripts.Render("~/bundles/burndown")*@
+    @Scripts.Render("~/bundles/burndown")
     @Scripts.Render("~/bundles/inputmask")
     
     <script>
@@ -16,30 +17,32 @@
     </script>
 }
 
+<div class="user-line">Добрый день, @Model.UserName</div>
 <div class="main-line">
     <div class="form-group">
         <input type="text" class="time-editor" value="8:24">
-        <button type="button" class="btn btn-checkin btn-lg centred">Привет</button>
+        <a class="btn btn-checkin btn-lg centred">Привет</a>
     </div>
 </div>
 
-@*
-<h2>Добрый день, mr. @Model.UserName</h2>
-<p>Ваши последние сессии:</p>
-@Html.ActionLink("Открыть сессию", "OpenSession", new { StartTime = DateTime.Now, UserId = Model.UserId })
-@Html.ActionLink("Закрыть сессию", "CloseSession", new { EndTime = DateTime.Now, UserId = Model.UserId })
-<table>
-    @foreach (SessionViewModel session in Model.Sessions)
-    {
-        <tr>
-            <td>@session.StartTime</td>
-            <td>@session.EndTime</td>
-            <td>@session.Duration</td>
-        </tr> 
-    }
-    <tr>
-        <td colspan="3">
-            <canvas id='myCanvas' height="150">Обновите браузер</canvas>
-        </td>
-    </tr>
-</table>*@
+<div class="details-line">
+    <canvas class="burndown-diagram" id='myCanvas' height="100" width="600">Обновите браузер</canvas>
+    <p>Ваши последние сессии:</p>
+    @*@Html.ActionLink("Открыть сессию", "OpenSession", new { StartTime = DateTime.Now, UserId = Model.UserId })
+    @Html.ActionLink("Закрыть сессию", "CloseSession", new { EndTime = DateTime.Now, UserId = Model.UserId })*@
+    <table class="table table-striped table-hover table-condensed">
+        <tr class="">
+            <th>Начало</th>
+            <th>Конец</th>
+            <th>Длительность</th>
+        </tr>
+        @foreach (SessionViewModel session in Model.Sessions)
+        {
+            <tr class="@(session.IsActive ? "active" : "")">
+                <td>@session.StartTime</td>
+                <td>@session.EndTime</td>
+                <td>@session.Duration.TotalHours.ToString("F1") ч.</td>
+            </tr>
+        }
+    </table>
+</div>

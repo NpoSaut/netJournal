@@ -17,5 +17,10 @@ namespace Journal.WebApplication.ViewModels
         {
             get { return (EndTime ?? DateTime.Now) - StartTime; }
         }
+
+        public bool IsActive
+        {
+            get { return EndTime == null; }
+        }
     }
 }

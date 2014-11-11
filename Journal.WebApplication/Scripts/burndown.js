@@ -28,15 +28,16 @@
         var burnsPerPixel = (maxUnburned - minUnburned) / myCanvas.clientHeight;
 
         var ctx = myCanvas.getContext('2d');
+        ctx.fillStyle = '#74A3C2';
+        ctx.strokeStyle = '#00405C';
         ctx.beginPath();
+        ctx.moveTo(0, myCanvas.clientHeight);
         $.each(items, function(i, e) {
             var x = (e.time - minTime) / tickPerPixel;
             var y = (e.unburned - minUnburned) / burnsPerPixel;
-            if (i === 0)
-                ctx.moveTo(x, myCanvas.clientHeight - y);
-            else
-                ctx.lineTo(x, myCanvas.clientHeight - y);
+            ctx.lineTo(x, myCanvas.clientHeight - y);
         });
+        ctx.fill();
         ctx.stroke();
     });
 });

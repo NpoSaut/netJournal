@@ -28,6 +28,19 @@ textarea { max-width: 280px; }
     text-align: center;
 }
 
+.user-line {
+    font-size: 18pt;
+    color: #00405C;
+    text-align: center;
+    font-style: italic;
+    margin: 10px;
+}
+
+.details-line {
+    margin: 10px auto;
+    width: 600px;
+}
+
 .main-line .centred {
     display: block;
     margin-left: auto;
@@ -45,6 +58,14 @@ textarea { max-width: 280px; }
 
 .time-editor:hover {
     text-decoration: #0e0d0b dotted underline;
+}
+
+.burndown-diagram {
+    margin: 10px;
+    opacity: 0.5;
+}
+.burndown-diagram:hover {
+    opacity: 1.0;
 }
 
 .btn-checkin {
