@@ -1,15 +1,24 @@
-﻿@using Journal.WebApplication.ViewModels
-@model Journal.WebApplication.ViewModels.HomeViewModel
+﻿@model Journal.WebApplication.ViewModels.HomeViewModel
 
 @{
     ViewBag.Title = "title";
 }
 
-@section scripts
+@*@section scripts
 {
     @Scripts.Render("~/bundles/burndown")
-}
+}*@
 
+<div class="main-line">
+    <div class="form-group">
+        <input type="text" class="form-control centred time-editor" value="8:24">
+        <button type="button" class="btn btn-success btn-lg centred">Привет</button>
+    </div>
+</div>
+
+
+
+@*
 <h2>Добрый день, mr. @Model.UserName</h2>
 <p>Ваши последние сессии:</p>
 @Html.ActionLink("Открыть сессию", "OpenSession", new { StartTime = DateTime.Now, UserId = Model.UserId })
@@ -28,4 +37,4 @@
             <canvas id='myCanvas' height="150">Обновите браузер</canvas>
         </td>
     </tr>
-</table>
+</table>*@

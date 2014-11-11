@@ -5,8 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 50px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +20,29 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.main-line {
+    background-image: url(/Content/Images/welcome.jpg);
+    background-position-x: center;
+    background-position-y: 40%;
+    height: 250px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.main-line .centred {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.time-editor {
+    margin: 10px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 24pt;
+    height: auto;
+    color: white;
 }
