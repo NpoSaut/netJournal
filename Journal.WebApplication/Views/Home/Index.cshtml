@@ -4,10 +4,17 @@
     ViewBag.Title = "title";
 }
 
-@*@section scripts
+@section scripts
 {
-    @Scripts.Render("~/bundles/burndown")
-}*@
+    @*@Scripts.Render("~/bundles/burndown")*@
+    @Scripts.Render("~/bundles/inputmask")
+    
+    <script>
+        $(document).ready(function() {
+            $(".time-editor").inputmask("hh:mm", { "placeholder": "_" });
+        });
+    </script>
+}
 
 <div class="main-line">
     <div class="form-group">
@@ -15,8 +22,6 @@
         <button type="button" class="btn btn-checkin btn-lg centred">Привет</button>
     </div>
 </div>
-
-
 
 @*
 <h2>Добрый день, mr. @Model.UserName</h2>

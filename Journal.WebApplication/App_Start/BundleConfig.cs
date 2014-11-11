@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Journal.WebApplication
 {
@@ -9,26 +8,32 @@ namespace Journal.WebApplication
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                "~/Scripts/jquery.validate*"));
 
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // используйте средство сборки на сайте http://modernizr.com, чтобы выбрать только нужные тесты.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/burndown").Include(
-                        "~/Scripts/burndown.js"));
+                "~/Scripts/burndown.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+                "~/Scripts/jquery.inputmask/jquery.inputmask.js",
+                "~/Scripts/jquery.inputmask/jquery.inputmask.extensions.js",
+                "~/Scripts/jquery.inputmask/jquery.inputmask.date.extensions.js",
+                "~/Scripts/jquery.inputmask/jquery.inputmask.numeric.extensions.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
 
             // Присвойте EnableOptimizations значение false для отладки. Дополнительные сведения
             // см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
