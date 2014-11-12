@@ -51,10 +51,14 @@ textarea { max-width: 280px; }
     background-color: transparent;
     border: none;
     color: #0e0d0b;
-    font-size: 64pt;
+    font-size: 78px;
     height: auto;
     text-align: center;
+    line-height: 0px; /*чтобы не ёрзало*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
+
 
 .time-editor:hover {
     text-decoration: #0e0d0b dotted underline;
