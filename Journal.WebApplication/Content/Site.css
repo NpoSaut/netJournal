@@ -19,6 +19,18 @@ input,
 select,
 textarea { max-width: 280px; }
 
+.morning {
+    
+}
+
+.workday {
+    
+}
+
+.evening {
+    
+}
+
 .main-line {
     background-image: url(/Content/Images/welcome.jpg);
     background-position-x: center;
@@ -73,11 +85,24 @@ textarea { max-width: 280px; }
 }
 
 .btn-checkin {
-    background-color: #47a447;
-    border-color: #398439;
     color: white;
     margin-top: 10px;
     width: 360px;
+}
+
+.morning .btn-checkin {
+    background-color: #47a447;
+    border-color: #398439;
+}
+
+.workday .btn-checkin {
+    background-color: #8B4432;
+    border-color: #712512;
+}
+
+.evening .btn-checkin {
+    background-color: #ff0000;
+    border-color: #ff0000;
 }
 
 .btn-checkin:hover, .btn-checkin:focus, .btn-checkin:active, .active.btn-checkin, .open .btn-checkin.dropdown-toggle {
