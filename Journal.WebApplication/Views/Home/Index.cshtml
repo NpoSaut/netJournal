@@ -9,19 +9,14 @@
 {
     @Scripts.Render("~/bundles/burndown")
     @Scripts.Render("~/bundles/inputmask")
-    
-    <script>
-        $(document).ready(function() {
-            $(".time-editor").inputmask("hh:mm", { "placeholder": " " });
-        });
-    </script>
+    @Scripts.Render("~/bundles/all")
 }
 
 <div class="user-line">Добрый день, @Model.UserName</div>
 <div class="main-line">
     <div class="form-group">
         <input type="text" class="time-editor" value="8:23">
-        <a class="btn btn-checkin btn-lg centred">Привет</a>
+        <a class="btn btn-checkin btn-lg centred" id="checkinButton">Привет</a>
     </div>
 </div>
 

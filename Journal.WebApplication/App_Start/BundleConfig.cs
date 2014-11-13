@@ -30,6 +30,11 @@ namespace Journal.WebApplication
                 "~/Scripts/jquery.inputmask/jquery.inputmask.extensions.js",
                 "~/Scripts/jquery.inputmask/jquery.inputmask.date.extensions.js",
                 "~/Scripts/jquery.inputmask/jquery.inputmask.numeric.extensions.js"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/all").Include(
+                "~/Scripts/moment.js",
+                "~/Scripts/time-editor.js",
+                "~/Scripts/sessions.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
