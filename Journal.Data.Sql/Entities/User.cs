@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Journal.Data
+namespace Journal.Data.Sql.Entities
 {
     /// <summary>Пользователь</summary>
     public class User

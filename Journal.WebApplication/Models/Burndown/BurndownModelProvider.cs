@@ -1,39 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Journal.Data;
+using Journal.Model;
 
 namespace Journal.WebApplication.Models.Burndown
 {
     /// <summary>Инструмент построения Burndown-диаграмм</summary>
     public class BurndownModelProvider : IBurndownModelProvider
     {
-        private readonly ISessionRepository _sessionRepository;
+        private readonly ISessionProvider _sessionProvider;
         private readonly IWorktimeCalculator _worktimeCalculator;
+        private IUserProvider _userProvider;
 
-        public BurndownModelProvider(IWorktimeCalculator WorktimeCalculator, ISessionRepository SessionRepository)
+        public BurndownModelProvider(IUserProvider UserProvider, IWorktimeCalculator WorktimeCalculator, ISessionProvider SessionProvider)
         {
+            _userProvider = UserProvider;
             _worktimeCalculator = WorktimeCalculator;
-            _sessionRepository = SessionRepository;
+            _sessionProvider = SessionProvider;
         }
 
         /// <summary>Строит модель Burndown-диаграммы для заданного отрезка времени</summary>
         /// <param name="StartTime">Дата начала отрезка времени для построения диаграммы</param>
         /// <param name="EndTime">Дата конца отрезка времени для построения диаграммы</param>
-        /// <param name="UserId">Идентификатор пользователя, для которого строится диаграмма</param>
-        public BurndownModel GetBurndownModel(DateTime StartTime, DateTime EndTime, int UserId)
+        /// <param name="User">Пользователь, для которого строится диаграмма</param>
+        public BurndownModel GetBurndownModel(DateTime StartTime, DateTime EndTime, IUserModel User)
         {
             double totalWorktime = _worktimeCalculator.CountWorkingHours(StartTime, EndTime);
-            IEnumerable<Session> sessions =
-                _sessionRepository.GetSessions(UserId)
-                                  .Where(s => (s.EndTime <= EndTime && s.EndTime >= StartTime)
-                                              || (s.StartTime >= StartTime && s.StartTime <= EndTime))
-                                  .ToList();
+            List<ISessionModel> sessions = _sessionProvider.GetSessionsForUser(User)
+                                                           .Where(s => (s.EndTime <= EndTime && s.EndTime >= StartTime)
+                                                                       || (s.StartTime >= StartTime && s.StartTime <= EndTime))
+                                                           .ToList();
 
             double burndown = totalWorktime;
             var points = new List<PointModel>(sessions.Count() + 2) { new PointModel(StartTime, burndown) };
 
-            foreach (Session session in sessions)
+            foreach (ISessionModel session in sessions)
             {
                 burndown -= ((session.EndTime ?? DateTime.Now) - session.StartTime).TotalHours;
                 points.Add(new PointModel(session.EndTime ?? EndTime, burndown));

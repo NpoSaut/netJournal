@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using Journal.Data.Sql.Entities;
 
-namespace Journal.Data.Sql
+namespace Journal.Data.Sql.Repositories
 {
     /// <summary>Репозиторий сессий, работающий через EntityFramework</summary>
-    public class EntityFrameworkSessionsRepository : ISessionRepository
+    public class EntityFrameworkSessionsRepository : RepositoryBase, ISessionsRepository
     {
         /// <summary>Добавляет новую сессию в базу данных</summary>
         /// <param name="Session">Сессия для добавления</param>

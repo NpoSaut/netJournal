@@ -58,6 +58,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -204,6 +206,10 @@
     <ProjectReference Include="..\Journal.Data.Sql\Journal.Data.Sql.csproj">
       <Project>{A7DD5806-B561-4F83-96C9-B56E88733BA0}</Project>
       <Name>Journal.Data.Sql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journal.Model\Journal.Model.csproj">
+      <Project>{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}</Project>
+      <Name>Journal.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journal.Shared\Journal.Shared.csproj">
       <Project>{4BDCA275-C3C0-4977-8D14-1554A2172E07}</Project>

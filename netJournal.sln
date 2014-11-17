@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Data.Sql", "Journal.Data.Sql\Journal.Data.Sql.csproj", "{A7DD5806-B561-4F83-96C9-B56E88733BA0}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseDemoPumper", "DatabaseDemoPumper\DatabaseDemoPumper.csproj", "{CEB5172B-F106-477E-B62B-E060E754EBE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.WebApplication", "Journal.WebApplication\Journal.WebApplication.csproj", "{A918A88D-26F5-403D-994F-CCFF32DA84D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journal.Model", "Journal.Model\Journal.Model.csproj", "{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{A918A88D-26F5-403D-994F-CCFF32DA84D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A918A88D-26F5-403D-994F-CCFF32DA84D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A918A88D-26F5-403D-994F-CCFF32DA84D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3F78C80-0EAE-4D60-ADA8-2EA33345945D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

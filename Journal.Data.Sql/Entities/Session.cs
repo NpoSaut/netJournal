@@ -1,6 +1,7 @@
 using System;
+using Journal.Model;
 
-namespace Journal.Data
+namespace Journal.Data.Sql.Entities
 {
     public class Session
     {

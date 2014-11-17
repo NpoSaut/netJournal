@@ -49,10 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFrameworkUserRepository.cs" />
+    <Compile Include="Repositories\EntityFrameworkUsersRepository.cs" />
     <Compile Include="JournalDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EntityFrameworkSessionsRepository.cs" />
+    <Compile Include="Repositories\EntityFrameworkSessionsRepository.cs" />
+    <Compile Include="Entities\Session.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\ISessionsRepository.cs" />
+    <Compile Include="Repositories\IUsersRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

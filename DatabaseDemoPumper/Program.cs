@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Journal.Data;
 using Journal.Data.Sql;
+using Journal.Data.Sql.Entities;
 
 namespace DatabaseDemoPumper
 {
@@ -23,9 +23,8 @@ namespace DatabaseDemoPumper
 
             var users = new[]
                         {
-                            new User("Плюснин Евгений Александрович"),
-                            new User("Наземных Антон Дмитриевич"),
-                            new User("Дятлов Дмитрий Карпович")
+                            new User(@"SAUT\plyusnin", "Евгений", "Плюснин", "Александрович"),
+                            new User(@"SAUT\nazemnyh", "Антон", "Наземных", "Дмитриевич")
                         };
 
             using (var context = new JournalDataModel())
