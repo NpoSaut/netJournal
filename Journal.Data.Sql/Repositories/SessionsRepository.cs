@@ -6,13 +6,13 @@ using Journal.Data.Sql.Entities;
 namespace Journal.Data.Sql.Repositories
 {
     /// <summary>Репозиторий сессий, работающий через EntityFramework</summary>
-    public class EntityFrameworkSessionsRepository : RepositoryBase, ISessionsRepository
+    public class SessionsRepository : ContextRepository, ISessionsRepository
     {
         /// <summary>Добавляет новую сессию в базу данных</summary>
         /// <param name="Session">Сессия для добавления</param>
         public void AddSession(Session Session)
         {
-            using (var context = new JournalDataModel())
+            using (var context = new JournalDataContext())
             {
                 context.Sessions.AddOrUpdate(Session);
                 context.SaveChanges();
@@ -24,7 +24,7 @@ namespace Journal.Data.Sql.Repositories
         /// <returns>Последняя открытая сессия</returns>
         public Session GetOpenSession(int UserId)
         {
-            using (var context = new JournalDataModel())
+            using (var context = new JournalDataContext())
             {
                 return context.Sessions.Where(s => s.UserId == UserId).SingleOrDefault(s => s.EndTime == null);
             }
@@ -34,7 +34,7 @@ namespace Journal.Data.Sql.Repositories
         /// <param name="UserId">Идентификатор пользователя</param>
         public IList<Session> GetSessions(int UserId)
         {
-            using (var context = new JournalDataModel())
+            using (var context = new JournalDataContext())
             {
                 return context.Sessions.Where(s => s.UserId == UserId).ToList();
             }
@@ -44,7 +44,7 @@ namespace Journal.Data.Sql.Repositories
         /// <param name="Session">Изменённая сессия</param>
         public void SaveSessionChanged(Session Session)
         {
-            using (var context = new JournalDataModel())
+            using (var context = new JournalDataContext())
             {
                 context.Sessions.AddOrUpdate(Session);
                 context.SaveChanges();

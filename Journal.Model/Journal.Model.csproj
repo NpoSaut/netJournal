@@ -39,11 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelAdapters\SessionModelAdapter.cs" />
-    <Compile Include="ModelAdapters\UserModelAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositorySessionProvider.cs" />
-    <Compile Include="RepositoryUserProvider.cs" />
+    <Compile Include="RepositorySessionModelProvider.cs" />
+    <Compile Include="RepositoryUserModelProvider.cs" />
     <Compile Include="SessionSortStrategy.cs" />
   </ItemGroup>
   <ItemGroup>

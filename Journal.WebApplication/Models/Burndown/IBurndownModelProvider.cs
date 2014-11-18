@@ -9,6 +9,6 @@ namespace Journal.WebApplication.Models.Burndown
         /// <param name="StartTime">Дата начала отрезка времени для построения диаграммы</param>
         /// <param name="EndTime">Дата конца отрезка времени для построения диаграммы</param>
         /// <param name="User">Пользователь, для которого строится диаграмма</param>
-        BurndownModel GetBurndownModel(DateTime StartTime, DateTime EndTime, IUserModel User);
+        BurndownModel GetBurndownModel(DateTime StartTime, DateTime EndTime, UserModel User);
     }
 }

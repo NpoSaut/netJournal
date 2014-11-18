@@ -17,7 +17,7 @@
     </script>
 }
 
-<div class="user-line">Добрый день, @Model.UserName</div>
+<div class="user-line">Добрый день, @Model.User.Appeal</div>
 <div class="main-line">
     <div class="form-group">
         <input type="text" class="time-editor" value="8:24">
@@ -36,13 +36,13 @@
             <th>Конец</th>
             <th>Длительность</th>
         </tr>
-        @foreach (SessionViewModel session in Model.Sessions)
-        {
-            <tr class="@(session.IsActive ? "active" : "")">
-                <td>@session.StartTime</td>
-                <td>@session.EndTime</td>
-                <td>@session.Duration.TotalHours.ToString("F1") ч.</td>
-            </tr>
-        }
+@*        @foreach (SessionViewModel session in Model.Sessions)*@
+@*        {*@
+@*            <tr class="@(session.IsActive ? "active" : "")">*@
+@*                <td>@session.StartTime</td>*@
+@*                <td>@session.EndTime</td>*@
+@*                <td>@session.Duration.TotalHours.ToString("F1") ч.</td>*@
+@*            </tr>*@
+@*        }*@
     </table>
 </div>

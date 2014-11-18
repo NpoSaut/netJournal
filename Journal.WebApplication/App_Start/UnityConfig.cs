@@ -2,6 +2,7 @@ using System;
 using Journal.Data.Sql.Repositories;
 using Journal.Model;
 using Journal.WebApplication.Models.Burndown;
+using Journal.WebApplication.ViewModels.NameFormatters;
 using Microsoft.Practices.Unity;
 
 namespace Journal.WebApplication.App_Start
@@ -31,11 +32,14 @@ namespace Journal.WebApplication.App_Start
         /// </remarks>
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<IUsersRepository, EntityFrameworkUsersRepository>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ISessionsRepository, EntityFrameworkSessionsRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IUsersRepository, UsersRepository>(new PerRequestLifetimeManager());
+            container.RegisterType<ISessionsRepository, SessionsRepository>(new PerRequestLifetimeManager());
 
-            container.RegisterType<IUserProvider, RepositoryUserProvider>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ISessionProvider, RepositorySessionProvider>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IUserModelProvider, RepositoryUserModelProvider>(new PerRequestLifetimeManager());
+            container.RegisterType<ISessionModelProvider, RepositorySessionModelProvider>(new PerRequestLifetimeManager());
+
+            container.RegisterType<IAppealFormatter, NameAndPatronymicAppealFormatter>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IFullNameFormatter, FullNameFormatter>(new ContainerControlledLifetimeManager());
 
             container.RegisterType<IWorktimeCalculator, SimpleWorktimeCalculator>(new ContainerControlledLifetimeManager());
             container.RegisterType<IBurndownModelProvider, BurndownModelProvider>(new ContainerControlledLifetimeManager());

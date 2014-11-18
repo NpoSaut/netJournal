@@ -3,9 +3,9 @@ using Journal.Data.Sql.Entities;
 
 namespace Journal.Data.Sql
 {
-    public class JournalDataModel : DbContext
+    public class JournalDataContext : DbContext
     {
-        public JournalDataModel()
+        public JournalDataContext()
             : base("name=JournalDataModel") { }
 
         public virtual DbSet<Session> Sessions { get; set; }

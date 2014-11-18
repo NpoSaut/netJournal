@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ISessionProvider.cs" />
-    <Compile Include="Model\IUserProvider.cs" />
-    <Compile Include="Model\ISessionModel.cs" />
-    <Compile Include="Model\IUserModel.cs" />
+    <Compile Include="Model\ISessionModelProvider.cs" />
+    <Compile Include="Model\IUserModelProvider.cs" />
+    <Compile Include="Model\PersonName.cs" />
+    <Compile Include="Model\SessionModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -27,7 +27,7 @@ namespace DatabaseDemoPumper
                             new User(@"SAUT\nazemnyh", "Антон", "Наземных", "Дмитриевич")
                         };
 
-            using (var context = new JournalDataModel())
+            using (var context = new JournalDataContext())
             {
                 foreach (User u in users)
                 {

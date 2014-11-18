@@ -1,7 +1,9 @@
-﻿namespace Journal.Data.Sql.Repositories
+﻿using Journal.Data.Sql.Entities;
+
+namespace Journal.Data.Sql.Repositories
 {
-    public interface IUsersRepository : IRepository
+    public interface IUsersRepository
     {
-         
+        User GetUserByLogin(string UserLogin);
     }
 }

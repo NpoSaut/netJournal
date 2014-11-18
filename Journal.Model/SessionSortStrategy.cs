@@ -5,15 +5,12 @@ namespace Journal.Model
 {
     public class SessionSortStrategy
     {
-        private Expression<Func<ISessionModel, DateTime>> _orderExpression;
-        public SessionSortStrategy(Expression<Func<ISessionModel, DateTime>> OrderExpression) { _orderExpression = OrderExpression; }
+        private Expression<Func<SessionModel, DateTime>> _orderExpression;
+        public SessionSortStrategy(Expression<Func<SessionModel, DateTime>> OrderExpression) { _orderExpression = OrderExpression; }
 
         public static SessionSortStrategy ByStartOlderFirst
         {
-            get
-            {
-                return new SessionSortStrategy(s => s.StartTime);
-            }
+            get { return new SessionSortStrategy(s => s.StartTime); }
         }
     }
 }

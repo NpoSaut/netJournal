@@ -1,6 +1,6 @@
 ﻿namespace Journal.Data.Sql.Repositories
 {
-    public interface ISessionsRepository : IRepository
+    public interface ISessionsRepository
     {
          
     }

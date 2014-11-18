@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using Journal.Model;
 using Journal.WebApplication.Models.Burndown;
@@ -12,14 +10,14 @@ namespace Journal.WebApplication.Controllers
     {
         private const int CurrentUserId = 1;
         private readonly IBurndownModelProvider _burndownModelProvider;
-        private readonly ISessionProvider _sessionProvider;
-        private readonly IUserProvider _userProvider;
+        private readonly IUserModelProvider _userProvider;
+        private readonly UserViewModelProvider _userViewModelProvider;
 
-        public HomeController(IUserProvider UserProvider, ISessionProvider SessionProvider, IBurndownModelProvider BurndownModelProvider)
+        public HomeController(IBurndownModelProvider BurndownModelProvider, IUserModelProvider UserProvider, UserViewModelProvider UserViewModelProvider)
         {
             _burndownModelProvider = BurndownModelProvider;
-            _sessionProvider = SessionProvider;
             _userProvider = UserProvider;
+            _userViewModelProvider = UserViewModelProvider;
         }
 
         public ActionResult Index()
@@ -31,15 +29,14 @@ namespace Journal.WebApplication.Controllers
                 var lastName = principal.Surname;
             }*/
 
-            IUserModel user = _userProvider.GetUserModel(User.Identity.Name);
+            UserViewModel user = _userViewModelProvider.GetViewModel(_userProvider.GetUserModel(User.Identity.Name));
 
-            List<SessionViewModel> sessions = _sessionProvider.GetSessionsForUser(user)
+            /*List<SessionViewModel> sessions = _sessionProvider.GetSessionsForUser(user)
                                                               .OrderByDescending(s => s.StartTime)
                                                               .Take(10)
                                                               .Select(s => new SessionViewModel(s.StartTime, s.EndTime))
-                                                              .ToList();
-            var model = new HomeViewModel(user.LoginName, string.Format("{0} {1} {2}", user.Name, user.Patronymic, user.Surname),
-                                          sessions);
+                                                              .ToList();*/
+            var model = new HomeViewModel(user);
 
             return View(model);
         }
@@ -63,8 +60,9 @@ namespace Journal.WebApplication.Controllers
 
         public JsonResult Burndown(DateTime From, DateTime To, string UserLogin)
         {
-            IUserModel user = _userProvider.GetUserModel(UserLogin);
+            UserModel user = _userProvider.GetUserModel(UserLogin);
             BurndownModel burndownModel = _burndownModelProvider.GetBurndownModel(From, To, user);
+            burndownModel = null;
             return Json(burndownModel, JsonRequestBehavior.AllowGet);
         }
     }
