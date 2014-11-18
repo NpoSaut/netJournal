@@ -1,54 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity.Migrations;
 using System.Linq;
 using Journal.Data.Sql.Entities;
+using Journal.Data.Sql.Strategies;
 
 namespace Journal.Data.Sql.Repositories
 {
     /// <summary>Репозиторий сессий, работающий через EntityFramework</summary>
     public class SessionsRepository : ContextRepository, ISessionsRepository
     {
-        /// <summary>Добавляет новую сессию в базу данных</summary>
-        /// <param name="Session">Сессия для добавления</param>
-        public void AddSession(Session Session)
+        public IList<Session> GetSessions(int UserId, params IQueryStrategy<Session>[] Strategies)
         {
-            using (var context = new JournalDataContext())
-            {
-                context.Sessions.AddOrUpdate(Session);
-                context.SaveChanges();
-            }
-        }
-
-        /// <summary>Получает последнюю открытую сессию</summary>
-        /// <param name="UserId"></param>
-        /// <returns>Последняя открытая сессия</returns>
-        public Session GetOpenSession(int UserId)
-        {
-            using (var context = new JournalDataContext())
-            {
-                return context.Sessions.Where(s => s.UserId == UserId).SingleOrDefault(s => s.EndTime == null);
-            }
-        }
-
-        /// <summary>Получает список всех сессий для указанного пользователя</summary>
-        /// <param name="UserId">Идентификатор пользователя</param>
-        public IList<Session> GetSessions(int UserId)
-        {
-            using (var context = new JournalDataContext())
-            {
-                return context.Sessions.Where(s => s.UserId == UserId).ToList();
-            }
-        }
-
-        /// <summary>Сохраняет изменения, сделанные в сессии</summary>
-        /// <param name="Session">Изменённая сессия</param>
-        public void SaveSessionChanged(Session Session)
-        {
-            using (var context = new JournalDataContext())
-            {
-                context.Sessions.AddOrUpdate(Session);
-                context.SaveChanges();
-            }
+            return Strategies
+                .Aggregate(
+                    Context.Sessions.Where(s => s.UserId == UserId),
+                    (query, strategy) => query.ApplyStrategy(strategy))
+                .ToList();
         }
     }
 }

@@ -58,6 +58,11 @@
     <Compile Include="Repositories\ISessionsRepository.cs" />
     <Compile Include="Repositories\IUsersRepository.cs" />
     <Compile Include="Repositories\ContextRepository.cs" />
+    <Compile Include="Strategies\FilterSessionsStrategy.cs" />
+    <Compile Include="Strategies\IQueryStrategy.cs" />
+    <Compile Include="Strategies\TakeNStrategy.cs" />
+    <Compile Include="Strategies\OrderSessionsStrategy.cs" />
+    <Compile Include="Strategies\QueryStrategyHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

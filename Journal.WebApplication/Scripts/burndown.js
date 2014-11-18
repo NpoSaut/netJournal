@@ -1,5 +1,5 @@
 ﻿$(document).ready(function() {
-    $.getJSON("Home/Burndown?from=10.28.2014&to=11.10.2014&userid=1", function(data, textStatus) {
+    $.getJSON("Home/Burndown?from=10.28.2014&to=11.10.2014&userlogin=SAUT\\plyusnin", function(data, textStatus) {
         var myCanvas = document.getElementById("myCanvas");
 
         var items = [];

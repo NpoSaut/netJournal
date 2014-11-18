@@ -145,6 +145,10 @@
     <Compile Include="Models\Burndown\PointModel.cs" />
     <Compile Include="Models\Burndown\SimpleWorktimeCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HomeViewModelProvider.cs" />
+    <Compile Include="ViewModels\IHomeViewModelProvider.cs" />
+    <Compile Include="ViewModels\ISessionViewModelProvider.cs" />
+    <Compile Include="ViewModels\IUserViewModelProvider.cs" />
     <Compile Include="ViewModels\NameFormatters\FullNameFormatter.cs" />
     <Compile Include="ViewModels\NameFormatters\IAppealFormatter.cs" />
     <Compile Include="ViewModels\NameFormatters\IFullNameFormatter.cs" />

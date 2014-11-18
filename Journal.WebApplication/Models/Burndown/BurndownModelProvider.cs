@@ -25,23 +25,19 @@ namespace Journal.WebApplication.Models.Burndown
         /// <param name="User">Пользователь, для которого строится диаграмма</param>
         public BurndownModel GetBurndownModel(DateTime StartTime, DateTime EndTime, UserModel User)
         {
-//            double totalWorktime = _worktimeCalculator.CountWorkingHours(StartTime, EndTime);
-//            List<SessionModel> sessions = _sessionModelProvider.GetSessionsForUser(User)
-//                                                           .Where(s => (s.EndTime <= EndTime && s.EndTime >= StartTime)
-//                                                                       || (s.StartTime >= StartTime && s.StartTime <= EndTime))
-//                                                           .ToList();
-//
-//            double burndown = totalWorktime;
-//            var points = new List<PointModel>(sessions.Count() + 2) { new PointModel(StartTime, burndown) };
-//
-//            foreach (ISessionModel session in sessions)
-//            {
-//                burndown -= ((session.EndTime ?? DateTime.Now) - session.StartTime).TotalHours;
-//                points.Add(new PointModel(session.EndTime ?? EndTime, burndown));
-//            }
-//
-//            return new BurndownModel(StartTime, EndTime, points);
-            throw new NotImplementedException();
+            double totalWorktime = _worktimeCalculator.CountWorkingHours(StartTime, EndTime);
+            IList<SessionModel> sessions = _sessionModelProvider.GetSessionsForUser(User, StartTime, EndTime);
+
+            double burndown = totalWorktime;
+            var points = new List<PointModel>(sessions.Count() + 2) { new PointModel(StartTime, burndown) };
+
+            foreach (SessionModel session in sessions)
+            {
+                burndown -= ((session.EndTime ?? DateTime.Now) - session.StartTime).TotalHours;
+                points.Add(new PointModel(session.EndTime ?? EndTime, burndown));
+            }
+
+            return new BurndownModel(StartTime, EndTime, points);
         }
     }
 }

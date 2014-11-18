@@ -8,16 +8,15 @@ namespace Journal.WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        private const int CurrentUserId = 1;
         private readonly IBurndownModelProvider _burndownModelProvider;
+        private readonly IHomeViewModelProvider _homeViewModelProvider;
         private readonly IUserModelProvider _userProvider;
-        private readonly UserViewModelProvider _userViewModelProvider;
 
-        public HomeController(IBurndownModelProvider BurndownModelProvider, IUserModelProvider UserProvider, UserViewModelProvider UserViewModelProvider)
+        public HomeController(IBurndownModelProvider BurndownModelProvider, IUserModelProvider UserProvider, IHomeViewModelProvider HomeViewModelProvider)
         {
             _burndownModelProvider = BurndownModelProvider;
             _userProvider = UserProvider;
-            _userViewModelProvider = UserViewModelProvider;
+            _homeViewModelProvider = HomeViewModelProvider;
         }
 
         public ActionResult Index()
@@ -29,14 +28,8 @@ namespace Journal.WebApplication.Controllers
                 var lastName = principal.Surname;
             }*/
 
-            UserViewModel user = _userViewModelProvider.GetViewModel(_userProvider.GetUserModel(User.Identity.Name));
-
-            /*List<SessionViewModel> sessions = _sessionProvider.GetSessionsForUser(user)
-                                                              .OrderByDescending(s => s.StartTime)
-                                                              .Take(10)
-                                                              .Select(s => new SessionViewModel(s.StartTime, s.EndTime))
-                                                              .ToList();*/
-            var model = new HomeViewModel(user);
+            UserModel userModel = _userProvider.GetUserModel(User.Identity.Name);
+            HomeViewModel model = _homeViewModelProvider.GetViewModel(userModel);
 
             return View(model);
         }
@@ -62,7 +55,6 @@ namespace Journal.WebApplication.Controllers
         {
             UserModel user = _userProvider.GetUserModel(UserLogin);
             BurndownModel burndownModel = _burndownModelProvider.GetBurndownModel(From, To, user);
-            burndownModel = null;
             return Json(burndownModel, JsonRequestBehavior.AllowGet);
         }
     }

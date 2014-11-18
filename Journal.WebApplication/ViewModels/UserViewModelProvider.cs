@@ -4,7 +4,7 @@ using Journal.WebApplication.ViewModels.NameFormatters;
 namespace Journal.WebApplication.ViewModels
 {
     /// <summary>Провайдер моделей представления пользователей</summary>
-    public class UserViewModelProvider
+    public class UserViewModelProvider : IUserViewModelProvider
     {
         private readonly IAppealFormatter _appealFormatter;
         private readonly IFullNameFormatter _fullNameFormatter;

@@ -2,6 +2,7 @@ using System;
 using Journal.Data.Sql.Repositories;
 using Journal.Model;
 using Journal.WebApplication.Models.Burndown;
+using Journal.WebApplication.ViewModels;
 using Journal.WebApplication.ViewModels.NameFormatters;
 using Microsoft.Practices.Unity;
 
@@ -38,6 +39,9 @@ namespace Journal.WebApplication.App_Start
             container.RegisterType<IUserModelProvider, RepositoryUserModelProvider>(new PerRequestLifetimeManager());
             container.RegisterType<ISessionModelProvider, RepositorySessionModelProvider>(new PerRequestLifetimeManager());
 
+            container.RegisterType<IHomeViewModelProvider, HomeViewModelProvider>(new PerRequestLifetimeManager());
+            container.RegisterType<IUserViewModelProvider, UserViewModelProvider>(new PerRequestLifetimeManager());
+            container.RegisterType<ISessionViewModelProvider, SessionViewModelProvider>(new PerRequestLifetimeManager());
             container.RegisterType<IAppealFormatter, NameAndPatronymicAppealFormatter>(new ContainerControlledLifetimeManager());
             container.RegisterType<IFullNameFormatter, FullNameFormatter>(new ContainerControlledLifetimeManager());
 
