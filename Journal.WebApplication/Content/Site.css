@@ -19,6 +19,18 @@ input,
 select,
 textarea { max-width: 280px; }
 
+.morning {
+    
+}
+
+.workday {
+    
+}
+
+.evening {
+    
+}
+
 .main-line {
     background-image: url(/Content/Images/welcome.jpg);
     background-position-x: center;
@@ -51,10 +63,14 @@ textarea { max-width: 280px; }
     background-color: transparent;
     border: none;
     color: #0e0d0b;
-    font-size: 64pt;
+    font-size: 78px;
     height: auto;
     text-align: center;
+    line-height: 0px; /*чтобы не ёрзало*/
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
+
 
 .time-editor:hover {
     text-decoration: #0e0d0b dotted underline;
@@ -69,11 +85,24 @@ textarea { max-width: 280px; }
 }
 
 .btn-checkin {
-    background-color: #47a447;
-    border-color: #398439;
     color: white;
     margin-top: 10px;
     width: 360px;
+}
+
+.morning .btn-checkin {
+    background-color: #47a447;
+    border-color: #398439;
+}
+
+.workday .btn-checkin {
+    background-color: #8B4432;
+    border-color: #712512;
+}
+
+.evening .btn-checkin {
+    background-color: #ff0000;
+    border-color: #ff0000;
 }
 
 .btn-checkin:hover, .btn-checkin:focus, .btn-checkin:active, .active.btn-checkin, .open .btn-checkin.dropdown-toggle {
