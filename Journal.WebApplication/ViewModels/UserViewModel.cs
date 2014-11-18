@@ -18,5 +18,7 @@
 
         /// <summary>Полное имя</summary>
         public string FullName { get; private set; }
+
+        public override string ToString() { return string.Format("Login: {0}, FullName: {1}", Login, FullName); }
     }
 }

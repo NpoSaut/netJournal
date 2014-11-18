@@ -12,5 +12,7 @@ namespace Journal.Model
 
         public DateTime StartTime { get; private set; }
         public DateTime? EndTime { get; private set; }
+
+        public override string ToString() { return string.Format("StartTime: {0}, EndTime: {1}", StartTime, EndTime); }
     }
 }

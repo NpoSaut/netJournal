@@ -22,5 +22,10 @@ namespace Journal.WebApplication.ViewModels
         {
             get { return EndTime == null; }
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} -- {1} Duration: {2:F1}, IsActive: {3}", StartTime, EndTime, Duration.TotalHours, IsActive);
+        }
     }
 }

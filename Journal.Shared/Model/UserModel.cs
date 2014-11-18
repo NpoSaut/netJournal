@@ -14,5 +14,7 @@ namespace Journal.Model
         public int Id { get; private set; }
         public String Login { get; private set; }
         public PersonName FullName { get; private set; }
+
+        public override string ToString() { return string.Format("Id: {0}, Login: {1}, FullName: {2}", Id, Login, FullName); }
     }
 }
