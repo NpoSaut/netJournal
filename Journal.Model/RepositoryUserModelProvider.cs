@@ -16,6 +16,24 @@ namespace Journal.Model
         public UserModel GetUserModel(string UserLogin)
         {
             User user = _repository.GetUserByLogin(UserLogin);
+            return GetUserModel(user);
+        }
+
+        /// <summary>Создаёт пользователя с указанными логином и именем</summary>
+        /// <param name="UserLogin">Логин пользователя</param>
+        /// <param name="PersonName">Имя пользователя</param>
+        /// <returns>Модель созданного пользователя</returns>
+        public UserModel CreateUser(string UserLogin, PersonName PersonName)
+        {
+            var dalUser = new User(UserLogin, PersonName.Name, PersonName.Surname, PersonName.Patronymic);
+            _repository.AddUser(dalUser);
+            return GetUserModel(dalUser);
+        }
+
+        /// <summary>Получает Модель для указанного пользователя</summary>
+        private static UserModel GetUserModel(User user)
+        {
+            if (user == null) return null;
             return new UserModel(user.Id,
                                  user.LoginName,
                                  new PersonName(user.Name, user.Surname, user.Patronymic));

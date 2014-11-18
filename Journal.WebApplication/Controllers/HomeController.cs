@@ -10,27 +10,19 @@ namespace Journal.WebApplication.Controllers
     {
         private readonly IBurndownModelProvider _burndownModelProvider;
         private readonly IHomeViewModelProvider _homeViewModelProvider;
-        private readonly IUserModelProvider _userProvider;
+        private readonly IUserManager _userManager;
 
-        public HomeController(IBurndownModelProvider BurndownModelProvider, IUserModelProvider UserProvider, IHomeViewModelProvider HomeViewModelProvider)
+        public HomeController(IBurndownModelProvider BurndownModelProvider, IHomeViewModelProvider HomeViewModelProvider, IUserManager UserManager)
         {
             _burndownModelProvider = BurndownModelProvider;
-            _userProvider = UserProvider;
             _homeViewModelProvider = HomeViewModelProvider;
+            _userManager = UserManager;
         }
 
         public ActionResult Index()
         {
-            /*using (var context = new PrincipalContext(ContextType.Domain))
-            {
-                var principal = UserPrincipal.FindByIdentity(context, User.Identity.Name);
-                var firstName = principal.GivenName;
-                var lastName = principal.Surname;
-            }*/
-
-            UserModel userModel = _userProvider.GetUserModel(User.Identity.Name);
+            UserModel userModel = _userManager.GetOrCreateUserModel(User.Identity.Name);
             HomeViewModel model = _homeViewModelProvider.GetViewModel(userModel);
-
             return View(model);
         }
 
@@ -53,7 +45,7 @@ namespace Journal.WebApplication.Controllers
 
         public JsonResult Burndown(DateTime From, DateTime To, string UserLogin)
         {
-            UserModel user = _userProvider.GetUserModel(UserLogin);
+            UserModel user = _userManager.GetOrCreateUserModel(UserLogin);
             BurndownModel burndownModel = _burndownModelProvider.GetBurndownModel(From, To, user);
             return Json(burndownModel, JsonRequestBehavior.AllowGet);
         }

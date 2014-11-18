@@ -38,6 +38,9 @@ namespace Journal.WebApplication.App_Start
 
             container.RegisterType<IUserModelProvider, RepositoryUserModelProvider>(new PerRequestLifetimeManager());
             container.RegisterType<ISessionModelProvider, RepositorySessionModelProvider>(new PerRequestLifetimeManager());
+            container.RegisterType<IUserManager, UserManager>(new PerRequestLifetimeManager());
+            container.RegisterType<IUserActivator, UserActivator>(new PerRequestLifetimeManager());
+            container.RegisterType<IUserDetailsProvider, ActiveDirectoryUserDetailsProvider>(new ContainerControlledLifetimeManager());
 
             container.RegisterType<IHomeViewModelProvider, HomeViewModelProvider>(new PerRequestLifetimeManager());
             container.RegisterType<IUserViewModelProvider, UserViewModelProvider>(new PerRequestLifetimeManager());

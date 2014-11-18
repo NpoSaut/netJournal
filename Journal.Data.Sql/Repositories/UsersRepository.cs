@@ -6,5 +6,11 @@ namespace Journal.Data.Sql.Repositories
     public class UsersRepository : ContextRepository, IUsersRepository
     {
         public User GetUserByLogin(string UserLogin) { return Context.Users.SingleOrDefault(u => u.LoginName == UserLogin); }
+
+        public void AddUser(User User)
+        {
+            Context.Users.Add(User);
+            Context.SaveChanges();
+        }
     }
 }

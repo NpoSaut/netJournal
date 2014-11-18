@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveDirectoryUserDetailsProvider.cs" />
+    <Compile Include="IUserActivator.cs" />
+    <Compile Include="IUserDetailsProvider.cs" />
+    <Compile Include="IUserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorySessionModelProvider.cs" />
     <Compile Include="RepositoryUserModelProvider.cs" />
-    <Compile Include="SessionSortStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journal.Data.Sql\Journal.Data.Sql.csproj">
