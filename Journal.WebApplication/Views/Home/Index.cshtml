@@ -1,5 +1,5 @@
 ﻿@using Journal.WebApplication.ViewModels
-@model HomeViewModel
+@model Journal.WebApplication.ViewModels.HomeViewModel
 
 @{
     ViewBag.Title = "Журнал учёта рабочего времени";
@@ -12,10 +12,15 @@
     @Scripts.Render("~/bundles/all")
 }
 
+<script>
+    var userId = @Model.UserId;
+    var userName = "@Model.UserName";
+</script>
+
 <div class="user-line">Добрый день, @Model.UserName</div>
-<div class="main-line">
+<div class="main-line" style="display: none;">
     <div class="form-group">
-        <input type="text" class="time-editor" value="8:23">
+        <input type="text" class="time-editor" value="8:23" style="display: none;">
         <a class="btn btn-checkin btn-lg centred" id="checkinButton">Привет</a>
     </div>
 </div>
